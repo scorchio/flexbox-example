@@ -1,0 +1,19 @@
+#contents, #itemList, #contentArea, #controlBar {
+  margin: 10px;
+}
+
+#contents {
+  background-color: purple;
+}
+
+#itemList {
+  background-color: green;
+}
+
+#contentArea {
+  background-color: blue;
+}
+
+#controlBar {
+  background-color: red;
+}
