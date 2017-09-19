@@ -1,19 +1,66 @@
+/* level 0: something that we can actually see */
+@import url('https://fonts.googleapis.com/css?family=Encode+Sans+Expanded:400,700');
+
+body { font-family: 'Encode Sans Expanded', sans-serif; }
+
 #contents, #itemList, #contentArea, #controlBar {
-  margin: 10px;
+  color: #f2eff3;
 }
 
-#contents {
-  background-color: purple;
+.box-with-content { padding: 10px; }
+
+#contents { background-color: #497aa3; padding: 10px; }
+#itemList { background-color: #2d718f; }
+#contentArea { background-color: #4fbcc2; }
+
+#controlBar { background-color: #55385e; }
+
+#folderList { list-style: none; padding-left: 0; }
+#folderList li { border: 1px solid #497aa3; }
+
+
+/* level 1: setting up a flex container */
+
+/* In this case, I would like to have something like a fullscreen app, so I
+force the flex wrapper to full height along with the body. */
+html, body { width: 100%; height: 100%; margin: 0; }
+#flex-wrapper { display: flex; height: 100%; }
+
+/* Let's start mobile first. For mobile, I would like to see the elements from
+top to bottom: contentArea, itemList, controlBar. This means that we need a
+flex-direction column instead of the default row. */
+#flex-wrapper { flex-direction: column; }
+
+
+
+
+/* level 2: set up the items so they take up all the space */
+#contents { flex: 1; }
+
+/* I also want the contentArea and the itemList to divide the space they have
+in half. This means we need another flex container. */
+#contents { display: flex; flex-direction: column; }
+#contentArea, #itemList { flex: 1; }
+
+/* The control bar is way to big, set a fixed size */
+#controlBar { height: 75px; }
+
+
+
+
+/* level 3: reorder contentArea and itemList on desktop; from left to right:
+itemList, contentArea. The content area should take 75% of the width. */
+@media screen and (min-width: 500px) {
+  #contents { flex-direction: row; }
+  #contentArea {
+    flex: 3; /* itemList has one, this sets up the ratio for us */
+    order: 1; /* replace the order */
+  }
 }
 
-#itemList {
-  background-color: green;
-}
 
-#contentArea {
-  background-color: blue;
-}
 
-#controlBar {
-  background-color: red;
-}
+/* level 4: set up the folders to be nice big buttons, 2 in a row */
+#folderList { display: flex; flex-wrap: wrap; }
+#folderList li { padding: 10px; text-align: center; flex: 1 0 40%; }
+#folderList li i { display: block; margin-bottom: 10px; }
