@@ -10,18 +10,129 @@
   <body>
     <div id="flex-wrapper">
       <div id="contents">
-        <div id="contentArea" class="box-with-content">content</div>
+        <div id="contentArea" class="box-with-content">
+          <span class="debug">contentArea</span>
+          <div class="content-header">
+            <h1 class="title">Hiromi - Spark</h1>
+            <img class="cover" src="img/hiromi-spark.jpg" />
+          </div>
+          <table class="tracklist">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Play</th>
+                <th>Title</th>
+                <th>Length</th>
+              </tr>
+            </thead>
+            <tr>
+              <td>1</td>
+              <td><i class="fa fa-play" aria-hidden="true"></i></td>
+              <td>Spark</td>
+              <td>9:04</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td><i class="fa fa-play" aria-hidden="true"></i></td>
+              <td>In A Trance</td>
+              <td>8:55</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td><i class="fa fa-play" aria-hidden="true"></i></td>
+              <td>Take Me Away</td>
+              <td>7:26</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td><i class="fa fa-play" aria-hidden="true"></i></td>
+              <td>Wonderland</td>
+              <td>5:43</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td><i class="fa fa-play" aria-hidden="true"></i></td>
+              <td>Indulgence</td>
+              <td>8:15</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td><i class="fa fa-play" aria-hidden="true"></i></td>
+              <td>Dilemma</td>
+              <td>8:49</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td><i class="fa fa-play" aria-hidden="true"></i></td>
+              <td>What Will Be, Will Be</td>
+              <td>7.40</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td><i class="fa fa-play" aria-hidden="true"></i></td>
+              <td>Wake Up And Dream</td>
+              <td>8:47</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td><i class="fa fa-play" aria-hidden="true"></i></td>
+              <td>All's Well</td>
+              <td>7:32</td>
+            </tr>
+          </table>
+          <div class="review">
+            <blockquote>
+              <p>There are three reasons why some people will not enjoy Spark, the fourth album from the Trio Project featuring Hiromi Uehara, the Japanese-born pianist and composer and drummer Simon Phillips and bassist Anthony Jackson:</p>
+              <p>1. It's too complex. 2. It rocks too hard to be jazz. 3. It's long (72 minutes).</p>
+              <p>None of these are good reasons.<p>
+            </blockquote>
+            <blockquote>Hiromi continues to be one of the most inventive and awe-inspiring pianists in jazz today.</blockquote>
+          </div>
+        </div>
         <div id="itemList" class="box-with-content">
-          <p>list of items</p>
+          <span class="debug">itemList</span>
+          <h2>My favorites</h2>
           <ul id="folderList">
-            <li><i class="fa fa-folder-open-o" aria-hidden="true"></i> Test folder 1</li>
-            <li><i class="fa fa-folder-o" aria-hidden="true"></i> Test folder 2</li>
-            <li><i class="fa fa-folder-o" aria-hidden="true"></i> Test folder 3</li>
-            <li><i class="fa fa-folder-o" aria-hidden="true"></i> Test folder 4</li>
+            <li><a class="button" href="#">
+              <i class="fa fa-folder-open-o" aria-hidden="true"></i> Smooth jazz
+            </a></li>
+            <li><a class="button" href="#">
+              <i class="fa fa-folder-o" aria-hidden="true"></i> 8-bit stuff
+            </a></li>
+            <li><a class="button" href="#">
+              <i class="fa fa-folder-o" aria-hidden="true"></i> Party hard
+            </a></li>
+            <li><a class="button" href="#">
+              <i class="fa fa-folder-o" aria-hidden="true"></i> Let's get some shit done
+            </a></li>
           </ul>
         </div>
       </div>
-      <div id="controlBar" class="box-with-content">control bar</div>
+      <div id="controlBar" class="box-with-content">
+        <span class="debug">control bar</span>
+        <ul id="controls">
+          <li>
+            <i class="fa fa-random" aria-hidden="true"></i>
+            <span class="player-control">Shuffle</span>
+          </li>
+          <li>
+            <i class="fa fa-step-backward" aria-hidden="true"></i>
+            <span class="player-control">Previous</span>
+          </li>
+          <li>
+            <i class="fa fa-play" aria-hidden="true"></i>
+            <span class="player-control">Play/Pause</span>
+          </li>
+          <li>
+            <i class="fa fa-step-forward" aria-hidden="true"></i>
+            <span class="player-control">Next</span>
+          </li>
+          <li>
+            <i class="fa fa-repeat" aria-hidden="true"></i>
+            <span class="player-control">Repeat</span>
+          </li>
+        </ul>
+      </div>
     </div>
   </body>
 </html>

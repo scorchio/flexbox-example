@@ -1,0 +1,11 @@
+@import "main";
+
+@include basics;
+@include debug-off;
+
+@include flex-basic-layout;
+@include controls-to-center;
+@include favorite-buttons;
+@include two-column-favorites;
+@include content-header-reordering;
+@include full-size-tracklist;

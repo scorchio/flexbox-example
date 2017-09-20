@@ -1,0 +1,181 @@
+// -----------------------------------------------------------------------------
+// something that we can actually see
+// -----------------------------------------------------------------------------
+@mixin basics() {
+  @import url('https://fonts.googleapis.com/css?family=Encode+Sans+Expanded:400,700');
+
+  body { font-family: 'Encode Sans Expanded', sans-serif; }
+
+  html, body { width: 100%; height: 100%; margin: 0; }
+
+  div, blockquote { margin: 0; padding: 0; }
+
+  #contents, #itemList, #contentArea, #controlBar {
+    color: #f2eff3;
+  }
+
+  .box-with-content { padding: 10px; }
+
+  #contents { background-color: #497aa3; padding: 10px; }
+  #itemList { background-color: #2d718f; }
+  #contentArea { background-color: #4fbcc2; }
+
+  #controlBar { background-color: #55385e; }
+  #controls { list-style: none; padding: 0; margin: 0; }
+  #controls li {
+    display: inline;
+    padding: 20px;
+  }
+  #controls .player-control { display: none; }
+
+  #folderList { list-style: none; padding: 0; margin: 0; }
+  /* make the folder list look like buttons */
+  #folderList li {
+     border: 1px solid #497aa3;
+     box-sizing: border-box; /* to avoid adding extra width with the border */
+   }
+  #folderList li a, #folderList a:hover, #folderList a:visited {
+    text-decoration: none;
+    color: #f2eff3;
+  }
+  #folderList li:hover {
+    background-color: #4fbcc2;
+  }
+
+  .cover {
+    width: 192px;
+    height: 192px;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// debug off
+// -----------------------------------------------------------------------------
+@mixin debug-off() {
+  .debug { display: none; }
+}
+
+// -----------------------------------------------------------------------------
+// setting up a flex container
+// -----------------------------------------------------------------------------
+@mixin flex-basic-layout() {
+  #flex-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  /* Let's start mobile first. On mobile, we want to pin the control bar. */
+  #controlBar { height: 75px; } // Set a fixed size for the bar
+  #contents {
+    overflow-y: scroll;
+    flex: 1; // Forces the rest of the content to take all the rest of the space
+  }
+
+  // reorder contentArea and itemList on desktop; from left to right
+  @media screen and (min-width: 500px) {
+    #contentArea, #itemList { flex: 1; }
+    #contents {
+      display: flex;
+      flex-direction: row;
+    }
+    #contentArea {
+      flex: 3; /* itemList has one, this sets up the ratio for us */
+      order: 1; /* replace the order */
+    }
+    /* add vertical scrolling for playlists and content */
+    #itemList, #contentArea { overflow-y: scroll; }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// set the controls
+// -----------------------------------------------------------------------------
+@mixin controls-to-center() {
+  #controls {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// set up the favorites to be nice big buttons
+// -----------------------------------------------------------------------------
+@mixin favorite-buttons() {
+  #folderList li { text-align: center; }
+  #folderList li i {
+     display: block;
+     margin-bottom: 20px;
+  }
+  #folderList li a {
+    display: block;
+    padding: 20px;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// favorites in 2 column after 1100px
+// -----------------------------------------------------------------------------
+@mixin two-column-favorites() {
+  #folderList {
+    display: flex;
+    flex-wrap: wrap; // items can't fit in single row? wrap around!
+  }
+  #folderList li { flex: 1 0 100%; }
+  @media screen and (min-width: 1100px) {
+    #folderList li { flex: 1 0 50%; }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// make the tracklist full size
+// -----------------------------------------------------------------------------
+@mixin full-size-tracklist() {
+  .tracklist {
+    width: 100%;
+  }
+  .tracklist tr {
+    display: flex;
+    height: 40px;
+  }
+  .tracklist th, td {
+    text-align: left;
+  }
+  .tracklist th:nth-child(1), td:nth-child(1) { /* track number */
+    flex: 1;
+  }
+  .tracklist th:nth-child(2), td:nth-child(2) { /* play buttons */
+    flex: 1;
+  }
+  .tracklist th:nth-child(3), td:nth-child(3) { /* title */
+    flex: 5;
+  }
+  .tracklist th:nth-child(4), td:nth-child(4) { /* length */
+    flex: 1;
+  }
+  /* make title even bigger on big screens */
+  @media screen and (min-width: 1100px) {
+    .tracklist th:nth-child(3), td:nth-child(3) {
+      flex: 10;
+    }
+  }
+}
+
+
+// -----------------------------------------------------------------------------
+// fix content header, reorder
+// -----------------------------------------------------------------------------
+@mixin content-header-reordering() {
+  .content-header {
+    display: flex;
+    margin-bottom: 20px;
+    flex-direction: column;
+  }
+  .title { margin: 0 0 20px 0; }
+
+  @media screen and (min-width: 500px) {
+    .content-header { flex-direction: row; }
+    .cover { order: -1; }
+    .title { margin: 0 0 0 20px; }
+  }
+}
